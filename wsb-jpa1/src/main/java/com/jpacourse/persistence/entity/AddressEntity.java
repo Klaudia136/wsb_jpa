@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "ADDRESS")
@@ -14,13 +15,24 @@ public class AddressEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
+	@OneToOne(cascade = CascadeType.ALL)
+	private DoctorEntity doctor;
+
+	@OneToOne(cascade = CascadeType.ALL)
+	private PatientEntity patient;
+
+	@Column(nullable = false)
 	private String city;
 
+	@Column(nullable = false)
 	private String addressLine1;
 
+	@Column(nullable = false)
 	private String addressLine2;
 
+	@Column(nullable = false)
 	private String postalCode;
+
 
 	public Long getId() {
 		return id;
@@ -62,4 +74,16 @@ public class AddressEntity {
 		this.postalCode = postalCode;
 	}
 
+	public void setPatient(PatientEntity patient) {
+		this.patient = patient;
+	}
+	public PatientEntity getPatient() {
+		return patient;
+	}
+	public DoctorEntity getDoctor() {
+		return doctor;
+	}
+	public void setDoctor(DoctorEntity doctor) {
+		this.doctor = doctor;
+	}
 }

@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "VISIT")
@@ -17,6 +18,19 @@ public class VisitEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
+	@ManyToOne (cascade = CascadeType.ALL)
+	@JoinColumn(name = "doctor_id")
+	private DoctorEntity doctor;
+
+	@ManyToOne (cascade = CascadeType.ALL)
+	@JoinColumn(name = "patient_id") // relacja jednostronna
+	private PatientEntity patient;
+
+	@ManyToOne (cascade = CascadeType.ALL)
+	@JoinColumn(name = "medical_treatment_id") // relacja jednostronna
+	private MedicalTreatmentEntity medicalTreatment;
+
+	@Column(nullable = false)
 	private String description;
 
 	@Column(nullable = false)
@@ -44,6 +58,19 @@ public class VisitEntity {
 
 	public void setTime(LocalDateTime time) {
 		this.time = time;
+	}
+
+	public DoctorEntity getDoctor() {
+		return doctor;
+	}
+	public void setDoctor(DoctorEntity doctor) {
+		this.doctor = doctor;
+	}
+	public PatientEntity getPatient() {
+		return patient;
+	}
+	public void setPatient(PatientEntity patient) {
+		this.patient = patient;
 	}
 
 }
