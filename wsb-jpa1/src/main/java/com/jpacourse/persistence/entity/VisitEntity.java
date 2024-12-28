@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "VISIT")
@@ -29,6 +30,9 @@ public class VisitEntity {
 	@ManyToOne (cascade = CascadeType.ALL)
 	@JoinColumn(name = "medical_treatment_id") // relacja jednostronna
 	private MedicalTreatmentEntity medicalTreatment;
+
+	@OneToMany(mappedBy = "visit", cascade = CascadeType.ALL) // Relacja dwustronna z MedicalTreatment
+	private List<MedicalTreatmentEntity> treatments;
 
 	@Column(nullable = false)
 	private String description;
@@ -72,5 +76,10 @@ public class VisitEntity {
 	public void setPatient(PatientEntity patient) {
 		this.patient = patient;
 	}
-
+	public List<MedicalTreatmentEntity> getTreatments() {
+		return treatments;
+	}
+	public void setTreatments(List<MedicalTreatmentEntity> treatments) {
+		this.treatments = treatments;
+	}
 }
