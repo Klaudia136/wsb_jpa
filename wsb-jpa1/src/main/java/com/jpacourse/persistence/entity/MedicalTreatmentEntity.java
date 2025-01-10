@@ -1,7 +1,5 @@
 package com.jpacourse.persistence.entity;
-
 import com.jpacourse.persistence.enums.TreatmentType;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -10,7 +8,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.util.List;
 import javax.persistence.*;
 
 @Entity
@@ -23,6 +20,7 @@ public class MedicalTreatmentEntity {
 
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "visit_id") // relacja jednostronna
+
 	private VisitEntity visit;
 	public VisitEntity getVisit() {
 		return visit;

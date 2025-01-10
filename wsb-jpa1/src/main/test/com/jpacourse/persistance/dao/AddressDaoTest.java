@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
-
 import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(SpringRunner.class)
@@ -17,7 +16,6 @@ public class AddressDaoTest
 {
     @Autowired
     private AddressDao addressDao;
-
     @Transactional
     @Test
     public void testShouldFindAddressById() {
@@ -26,7 +24,7 @@ public class AddressDaoTest
         AddressEntity addressEntity = addressDao.findOne(1L);
         // then
         assertThat(addressEntity).isNotNull();
-        assertThat(addressEntity.getPostalCode()).isEqualTo("62-030");
+        assertThat(addressEntity.getPostalCode()).isEqualTo("35-200");
     }
 
     @Test
@@ -36,7 +34,7 @@ public class AddressDaoTest
         addressEntity.setAddressLine1("line1");
         addressEntity.setAddressLine2("line2");
         addressEntity.setCity("City1");
-        addressEntity.setPostalCode("66-666");
+        addressEntity.setPostalCode("35-200");
         long entitiesNumBefore = addressDao.count();
 
         // when
@@ -56,7 +54,7 @@ public class AddressDaoTest
         addressEntity.setAddressLine1("line1");
         addressEntity.setAddressLine2("line2");
         addressEntity.setCity("City1");
-        addressEntity.setPostalCode("66-666");
+        addressEntity.setPostalCode("35-200");
 
         // when
         final AddressEntity saved = addressDao.save(addressEntity);

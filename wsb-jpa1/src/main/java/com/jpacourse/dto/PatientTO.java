@@ -16,7 +16,7 @@ public class PatientTO implements Serializable
     private LocalDate dateOfBirth;
     private AddressEntity address;
     private List<VisitEntity> visits;
-    private char hasBeenVaccinated;
+    private boolean hasBeenVaccinated;
 
     public Long getId() {
         return id;
@@ -86,15 +86,13 @@ public class PatientTO implements Serializable
         return visits;
     }
 
-    public void setVisits(List<VisitEntity> visits) {
-        this.visits = visits;
-    }
+    public void setVisits(List<VisitEntity> visits) {this.visits = visits;}
 
-    public char getHasBeenVaccinated() {
+    public boolean getHasBeenVaccinated() {
         return hasBeenVaccinated;
     }
 
-    public void setHasBeenVaccinated(char hasBeenVaccinated) {
+    public void setHasBeenVaccinated(boolean hasBeenVaccinated) {
         this.hasBeenVaccinated = hasBeenVaccinated;
     }
 }

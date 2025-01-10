@@ -7,9 +7,9 @@ INSERT INTO doctor (doctor_number, email, first_name, last_name, specialization,
 ('D06', 'zzzzz@example.com', 'Hannah', 'Montana', 'SURGEON', '762412852');
 
 INSERT INTO patient (date_of_birth, email, first_name, last_name, patient_number, telephone_number, has_been_vaccinated) VALUES
-('1928-11-18', 'mickeyy2@example.com', 'Mickey', 'Mouse', 'P01', '989652454', 'Y'),
-('2018-07-31', 'harryy22@example.com', 'Harry', 'Potter', 'P02', '751954356', 'N'),
-('1969-09-13', 'doobydoo@example.com', 'Scooby', 'Doo', 'P03', '333125469', 'N');
+('1928-11-18', 'mickeyy2@example.com', 'Mickey', 'Mouse', 'P01', '989652454', 1),
+('2018-07-31', 'harryy22@example.com', 'Harry', 'Potter', 'P02', '751954356', 0),
+('1969-09-13', 'doobydoo@example.com', 'Scooby', 'Doo', 'P03', '333125469', 1);
 
 INSERT INTO address (address_line1, address_line2, city, postal_code, doctor_id, patient_id) VALUES
 ('Legnicka 19', 'm2', 'Wroclove', '35-200', 1, 1),
